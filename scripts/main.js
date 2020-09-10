@@ -55,7 +55,6 @@ class Main extends HTMLElement {
     });
 
     this.saveTodos();
-    this.render();
   }
 
   searchTodo = (value) => {

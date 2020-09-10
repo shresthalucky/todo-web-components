@@ -45,7 +45,14 @@ class Todo extends HTMLElement {
     this.doneButton = document.createElement('app-button');
     this.deleteButton = document.createElement('app-button');
 
-    this.state = {}
+  }
+  
+  static get observedAttributes() {
+    return ['status'];
+  }
+
+  attributeChangedCallback(name, oldVal, newVal) {
+    this.render();
   }
 
   handleDeleteTodo = () => {
@@ -54,14 +61,10 @@ class Todo extends HTMLElement {
 
   handleToggleActive = () => {
     this.actions.toggleTodo(this.todo.id);
-    this.state.active = !this.state.active;
-    this.render();
   }
 
   connectedCallback() {
-    this.state.active = this.todo.active;
     this.deleteButton.label = 'Delete';
-
 
     this.titleElement.innerHTML = this.todo.title;
     this.descriptionElement.innerHTML = this.todo.description;
@@ -78,8 +81,11 @@ class Todo extends HTMLElement {
   }
 
   render = () => {
-    this.todoElement.classList.add(this.state.active ? 'undone' : 'done');
-    this.doneButton.label = this.state.active ? 'Done' : 'Undone';
+    const status = this.getAttribute('status');
+
+    this.todoElement.className = '';
+    this.todoElement.classList.add('todo', status);
+    this.doneButton.label = status === 'done' ? 'Undone' : 'Done';
   }
 
 }

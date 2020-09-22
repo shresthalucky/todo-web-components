@@ -1,0 +1,25 @@
+{
+  "name": "todo-web-components",
+  "version": "1.0.0",
+  "description": "Todo app using web components and lit-html",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shresthalucky/todo-web-components.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shresthalucky/todo-web-components/issues"
+  },
+  "homepage": "https://github.com/shresthalucky/todo-web-components#readme",
+  "dependencies": {
+    "lit-html": "^1.3.0",
+    "parcel-bundler": "^1.12.4"
+  }
+}
